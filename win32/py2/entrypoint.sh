@@ -25,6 +25,9 @@ cd /src
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
+    if pip freeze | grep pyzmq ; then
+        cp /wine/drive_c/Python27/Lib/site-packages/zmq/libzmq.pyd /wine/drive_c/Python27/Lib/site-packages/zmq/backend/cython/libzmq.pyd
+    fi
 fi # [ -f requirements.txt ]
 
 echo "$@"
